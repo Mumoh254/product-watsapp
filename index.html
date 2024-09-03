@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
     <div class="product-card">
-        <img id="productImage" src="/images/blog-2.png" alt="Product Image" class="product-image" height="300px"  width="300px">
+        <img id="productImage" src="/images/blog-2.png" alt="Product Image" class="product-image" height="300px" width="300px">
         <h1 class="product-title">Product Name</h1>
         <h2 class="product-price">$99.99</h2>
         <button class="shop-button" onclick="redirectToWhatsApp()">Shop Now</button>
@@ -20,15 +21,14 @@
             const productName = document.querySelector('.product-title').textContent;
             const productPrice = document.querySelector('.product-price').textContent;
             
-            
-            // Construct the WhatsApp message
-            const message = `I'm interested in the ${productName} priced at ${productPrice}. Please attach the product image from the website.`;
-            
             // Get the image URL
             const imageUrl = window.location.origin + document.getElementById('productImage').getAttribute('src');
             
+            // Construct the WhatsApp message
+            const message = `I'm interested in the ${productName} priced at ${productPrice}. You can view the product image here: ${imageUrl}`;
+            
             // Encode the message
-            const encodedMessage = encodeURIComponent(message + ' ' + imageUrl);
+            const encodedMessage = encodeURIComponent(message);
             
             // WhatsApp number (replace with the actual number)
             const whatsappNumber = '254740045355';
